@@ -49,21 +49,21 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/tyoppar01/hw_w9/branch1/data/utility.csv"
+              "url": "https://raw.githubusercontent.com/tyoppar01/hw_w9/branch1/data/gdp_data.csv"
             },
             "key": "country_name",
-            "fields": ["price", "ranking"]
+            "fields": ["country_code", "year", "value"]
           }
         },
         {
-          "calculate": "datum.price + 0.0",
-          "as": "Pricings"
+          "calculate": "datum.year + 0.0",
+          "as": "Year"
         }
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
-          "field": "Pricings",
+          "field": "value",
           "type": "quantitative",
           "scale": {
             "type": "quantitative",
@@ -74,43 +74,21 @@
           {
             "field": "properties.NAME", 
             "type": "nominal", 
-            "title": "country_name"
+            "title": "Country Name"
           },{
-            "field": "Pricings",
+            "field": "country_code",
+            "type": "nominal",
+            "title": "Country Code"
+          },{
+            "field": "year",
             "type": "quantitative",
-            "format": ".2f"
           },{
-            "field": "ranking",
-            "type": "quantitative"
+            "field": "value",
+            "type": "quantitative",
+            "title": "GDP value",
+            "format": ".0f"
           }
         ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "lookup": "properties.NAME",
-          "from": {
-            "data": {
-              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/countryInfo.csv"
-            },
-            "key": "name",
-            "fields": ["latitude", "longitude"]
-          }
-        }
-      ],
-      "mark": {"type": "text"},
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "properties.NAME", "type": "nominal"},
-        "opacity": {
-          "condition": {
-            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Yemen' ||  datum['properties.NAME'] == 'United States of America'",
-            "value": 1
-          },
-          "value": 0
-        }
       }
     }
   ],
