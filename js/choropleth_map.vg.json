@@ -10,28 +10,30 @@
   },
   "transform": [
     {
-      "lookup": "properties.NAME",
+      "lookup": "properties.Name",
       "from": {
         "data": {
           "url": 
-          "https://gist.githubusercontent.com/tyoppar01/d093e7fb81120b657ac0a30780b122fa/raw/015d1c5a3cb9355b4d6ca2406b9a1f39570919d6/house_util.csv"
+          "https://raw.githubusercontent.com/tyoppar01/hw_w9/branch1/data/utility.csv"
       },
         "key": "country_name",
         "fields": ["price"]
       }
     },
-    {"calculate": "datum.price + 0.0", "as": "Pricings"}
+    {"calculate": 
+    "datum.price + 0.0", "as": "Utility Price"}
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Pricings",
+      "field": "Utility Price",
       "type": "quantitative",
       "scale": {"type": "log"}
     },
     "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "country_name"},
-      {"field": "Pricings", "type": "quantitative"}
+      {"field": "properties.NAME", "type": "nominal", "title": "Country Name"},
+      {"field": "Utility Price", "type": "quantitative"}
     ]
   }
+  
 }
