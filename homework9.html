@@ -10,9 +10,9 @@
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "World GDP",
-  "width": 800,
-  "height": 400,
+  "title": "World GDP in 2022",
+  "width": 1500,
+  "height": 800,
   "data": {
     "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -67,7 +67,7 @@
           "type": "quantitative",
           "scale": {
             "type": "quantitative",
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+            "range": ["#99CC99", "#009933", "#00CC33", "#00FF33"]
           }
         },
         "tooltip": [
